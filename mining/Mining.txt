@@ -1,0 +1,75 @@
+﻿public class Mine
+{
+    public static string COPPER = "copper";
+    public static string SILVER = "silver";
+    public static string GOLD = "gold";
+    public static string PLATINUM = "platinum";
+    public static string[] PRECIOUS = new[] { COPPER, SILVER, GOLD, PLATINUM };
+    public static string[] Ore =
+    {
+        "zexewjilxhbekrkerzkxjqobrooloxerbylwzbirplewfjjyyr",
+        "lyhilfzwrhhhfwxqjrbhoiypqqhffvsiefkerryffxkhhjebwz",
+        "jxrjlibyhhpoelzpkhzboypobykxioelbqqfzrpeijykbwzfzl",
+        "yikpowhjbbykfohjjoboijfbhzebqkpibfbxqwxkehleoqlofk",
+        "whzzqrorjxikhzyyeyofqlpyhfewyijxjpjhbffyqibpizzbxf",
+        "yhpltlbxranbkzifrheirimllbwirfiyobjyibyhzrzyjeyiou",
+        "ofpppyzfeffwceplflewrwofhlzhkrboiplrrfqbpbqobxrbzl",
+        "bflipibphffoyqqfrxbbrljblywyyiizrkxepkeblzlfwwelop",
+        "ywryylzzxrlyjerzojbjflxhzrrqljzlklorpfprfqwwbqpflb",
+        "zyzeyblwfwrpzqxiiykkrpfhlsxqizrjwrkvbhfhlxzeefrrbe",
+        "lpqbpheiyjporpjehypozizqypwfokhpxjjowbzxhxhlxpiqwh",
+        "ylbjloyixlwefrhirxhhewhwrheqziyklqkbeehehlifzyxlqe",
+        "oqjwzijbchziexrljpyqxwzkfizybyywekhpbjexkpfpfjkqep",
+        "owwpkfrzerzkfeizixezzhepprhfolpwkxelkihjriplikqehl",
+        "zfywxhjezorzijzzqpopwxkbifreqbbkryjxlpwfwfeoxhpofq",
+        "qrfixkpiqofweizhepbwrhrlrhzzihoqyorjrerelbyikzpowx",
+        "xlfqbrgbrbizrfxqyifhyirljpopjjwrdkohezrbopyqzqoqly",
+        "zqkqibypfbzzkybkeoobolwxfbfxwohiiiexyirpkezxilkzwh",
+        "breohkbiwlzoopoofhlbepfebjobeepeqbbjrhhpoyrwzewjco",
+        "qwreyljqjkqbwirjqlilkyfipilxbypyqiljqxriibhfbqpixx",
+        "zbeokqrpplxqppjhhxwzczihqkzheqqobjrlyewbwbekebybpi",
+        "hwxtefiqiojayikuqrwhwknzehwwlblmoopbekeplxrzixoybf",
+        "ibbwooarlfwxflkheqzzpxbeilrpwfytfehqlwwmohnqowxoyu",
+        "jfbwqirqhhjlrollwbhfjhkbyrzbqqljryofiypgjwepxwfdkl",
+        "kylxqhhbjhjbzlqqprjhweyjpljoowhyxyqjxfzbhpbxewkzxz",
+        "yooqllqgjjpxjjiphypwxxrrbfyjjkilelfldbojoxolbxqofh",
+        "hkpiqrijhqolbbpejizxwkbwwlqriieryxepyohlkxkqkzxyze",
+        "beipzkiqxroixpkherqleriiserqzqjblxoblqxvebifkihejl",
+        "niwokqehryxqrjhebaoxptwiiokplizyfkbilzkeiyubmqozpj",
+        "xhxjkzetjypqbkyyrphbpkmalnoohrwhflwwbhpbpwulowiqqe",
+    };
+    public static void MineOre()
+    {
+        var oreCount = 0;
+        for (int i = 0; i < Ore.Length; i++)
+        {
+            Console.WriteLine("Ore Item: {0}", i);
+            foreach (var metal in PRECIOUS)
+            {
+                if (OreContainsMetal(Ore[i], metal))
+                {
+                    Console.WriteLine("Found {0} at {1}", metal, i);
+                    oreCount++;
+                }
+            }
+            Console.WriteLine("Ore Item: {0} contains {1}", i, oreCount);
+            oreCount = 0;
+        }
+
+        Console.WriteLine("Ore Item Count: {0}", Mine.Ore.Length);
+    }
+
+    public static bool OreContainsMetal(string ore, string metal)
+    {
+        Console.WriteLine("Mining Ore: {0} Metal: {1}", ore, metal);
+        for (int i = 0; i < metal.Length; i++)
+        {
+            if (!ore.ToLower().Contains(metal[i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
